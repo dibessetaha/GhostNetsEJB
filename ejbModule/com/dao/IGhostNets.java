@@ -10,7 +10,8 @@ public interface IGhostNets {
 	public GhostNets getOne(Long id) ; 
 	public void addOne(GhostNets ghostNets) ; 
 	public GhostNets updateOne(Long id, GhostNets ghostNets) ; 
-	public void reportGhostNet(Long id, String status) ; 
+	public void reportGhostNet(Long id, String status) ;
+	public void deleteOne(Long id); 
 	
 
 

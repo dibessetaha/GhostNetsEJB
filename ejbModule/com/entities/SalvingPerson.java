@@ -1,5 +1,6 @@
 package com.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="Salvings")
-public class SalvingPerson {
+public class SalvingPerson implements Serializable {
 	
 	@Id
 	private Long id ; 
@@ -25,8 +26,8 @@ public class SalvingPerson {
 	
 	private String password ;
 	
-	@OneToMany(mappedBy = "salvingperson")
-    private List<SalvingPerson> salvingPersons = new ArrayList<>();
+	@OneToMany(mappedBy = "salvingPerson")
+    private List<GhostNets> ghostNets = new ArrayList<>();
 	
 
 
@@ -85,14 +86,14 @@ public class SalvingPerson {
 		this.password = password;
 	} 
 	
-	public List<SalvingPerson> getSalvingPersons() {
-		return salvingPersons;
+	public List<GhostNets> getSalvingPersons() {
+		return ghostNets;
 	}
 
 
 
-	public void setSalvingPersons(List<SalvingPerson> salvingPersons) {
-		this.salvingPersons = salvingPersons;
+	public void setSalvingPersons(List<GhostNets> ghostNets) {
+		this.ghostNets = ghostNets;
 	}
 
 	

@@ -1,5 +1,7 @@
 package com.entities;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,7 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "ghost_nets")
-public class GhostNets {
+public class GhostNets implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

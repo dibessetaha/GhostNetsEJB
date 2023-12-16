@@ -41,12 +41,13 @@ public class GhostNetsImp implements IGhostNets  {
 
 	@Override 
 	public GhostNets updateOne(Long id , GhostNets ghostNets) {
-//		GhostNets ghNets =  getOne(id) ; 
-//		ghNets.setLocation(ghostNets.getLocation());
-//		ghNets.setSize(0);
-		
-		
-		return null;
+		GhostNets ghNets =  getOne(id) ; 
+		ghNets.setLocation(ghostNets.getLocation());
+		ghNets.setSize(ghostNets.getSize());
+		ghNets.setStatus(ghostNets.getStatus());
+		ghNets.setSalvingPerson(ghostNets.getSalvingPerson());
+		em.persist(ghNets);		
+		return ghNets;
 	}
 
 
@@ -55,6 +56,14 @@ public class GhostNetsImp implements IGhostNets  {
 		GhostNets ghostNets = getOne(id); 
 		if(ghostNets == null) throw new RuntimeException("Data not found")  ; 
 		em.persist(ghostNets);
+		
+	}
+
+
+	@Override
+	public void deleteOne(Long id) {
+		GhostNets ghost = getOne(id) ; 
+		em.remove(ghost);
 		
 	}
 
